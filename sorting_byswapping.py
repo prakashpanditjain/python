@@ -15,3 +15,7 @@ def sortlist(l):
 
 sortlist(lst)
 print(lst)
+
+lst2 = [1,2,3,6,5,4,3,2,9,8,6,45,6,7,8,6]
+sortlist(lst2)
+print(lst2)
