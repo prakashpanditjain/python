@@ -1,6 +1,14 @@
-list1 = ['prakash','ajay','rahul']
-list2 = ['pandit','dudhe','shinde']
+string = 'BANANA'
+stuart = 0
+kevin = 0
+vowels = ['A','E','I','O','U']
+for i in range(len(string)):
+    if string[i] in vowels:
+        kevin += len(string) - i
+    else:
+        stuart += len(string) - i
 
-lst = zip(list1,list2)
-
-print(tuple(lst))
+if(kevin<stuart):
+    print('Stuart',stuart)
+else:
+    print('Kevin',kevin)
