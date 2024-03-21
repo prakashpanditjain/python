@@ -3,19 +3,26 @@
 # a b c
 def fib(n):
     a = 0
-    b = 1
-    print(a,"\n",b)
+    b =1
+    if b <= n:
+        return lambda a,b : b,a+b
+a = fib(10)
+print(a)
+# def fib(n):
+#     a = 0
+#     b = 1
+#     print(a,"\n",b)
+#
+#     for i in range(2,n):
+#         c = a + b
+#         a = b
+#         b =c
+#
+#         #this is check if the next number is less or equal to the user provided number
+#         if c <= n:
+#             print(c)
+#         else:
+#             break
 
-    for i in range(2,n):
-        c = a + b
-        a = b
-        b =c
-
-        #this is check if the next number is less or equal to the user provided number
-        if c <= n:
-            print(c)
-        else:
-            break
-
-result = fib(50)
-print(result)
+# result = fib(50)
+# print(result)
