@@ -6,11 +6,12 @@ qr = qrcode.QRCode(
     border = 5
 )
 
-data = "I LOVE YOU SO MUCH POOJA"
+data = "I LOVE YOU SO MUCH पूजा !"
 
 qr.add_data(data)
 qr.make(fit= True)
-img = qr.make_image(fill= 'black',back_color = 'White')
-img.save('text.png')
+img = qr.make_image(fill= 'black',back_color = 'red')
+img.show()
+# img.save('text.png')
 
 # /Users/prakashpandit/PycharmProjects/pythonProject/qrcode_generator.py
