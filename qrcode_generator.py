@@ -6,11 +6,11 @@ qr = qrcode.QRCode(
     border = 5
 )
 
-data = "I LOVE YOU SO MUCH पूजा !"
+data = "https://www.youtube.com/watch?v=yAF6CzAAL3s"
 
 qr.add_data(data)
 qr.make(fit= True)
-img = qr.make_image(fill= 'black',back_color = 'red')
+img = qr.make_image(fill= 'black',back_color = 'white')
 img.show()
 # img.save('text.png')
 
