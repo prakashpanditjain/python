@@ -12,5 +12,5 @@ content = soup.find_all('a', attrs={'class': "title"})
 print(content)
 product_name =[]
 for i in range(len(content)):
-    product_name.append(content[i].text.strip().replace('...',''))
+    product_name.append(content[i].text.strip().replace('...', ''))
 print(product_name)
