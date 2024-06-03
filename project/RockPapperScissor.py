@@ -10,6 +10,9 @@ while True:
     # Give user the information of choices
     print("please Enter your choice \n 1-Rock \n 2-Paper \n 3-Scissor ")
 
+    # Enter user name
+    user_name = input("Enter your name as a user:")
+
     # take input from the user
     choice = int(input("Enter your choice:- "))
 
@@ -54,17 +57,17 @@ while True:
         print("<== ITS A TIE ==>")
 
     if (choice == 1 and comp_choice == 2):
-        print("Paper wins ====> ", end="")
+        print("Paper wins ====> \n", end="")
         result = 'Paper'
     elif (choice == 2 and comp_choice == 1):
-        print("Paper wins ==> ", end="")
+        print("Paper wins ==> \n", end="")
         result = 'Paper'
 
     if (choice == 2 and comp_choice == 3):
-        print("Scissor wins ==>", end="")
+        print("Scissor wins ==>\n", end="")
         result = "Scissor"
     elif (choice == 3 and comp_choice == 2):
-        print("Scissor wins ==>", end="")
+        print("Scissor wins ==>\n", end="")
         result = 'Scissor'
 
     if (choice == 1 and comp_choice == 3):
@@ -80,9 +83,9 @@ while True:
         print('<== ITS A TIE ==>')
 
     if result.lower() == choice_name.lower():
-        print('<== USER WINS ==>')
+        print(f'\n<== {user_name} WINS ==>')
     else:
-        print('<== COMPUTER WINS ==>')
+        print('\n<== COMPUTER WINS ==>')
 
     print("Do you want to play again ? Yes/ NO")
     ans = input().lower()
@@ -91,4 +94,3 @@ while True:
         break
 
 print("Thanks for playing")
-
