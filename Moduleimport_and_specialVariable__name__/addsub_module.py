@@ -1,20 +1,22 @@
-def add(a,b):
+def add(a, b):
     global c
-    c = a+b
+    c = a + b
     print(c)
-def sub(a,b):
-    global c
-    if a < b :
-        a,b = b,a
-    c = a - b
-    print(c)
-    print("this is module",__name__)
 
-# <editor-fold desc="Description">
+
+def sub(a, b):
+    global c
+    if a < b:
+        a, b = b, a
+    print("this is module", __name__)
+    print(a - b)
+
+
 def main():
-    add(a=3,b=5)
-    sub(a=5,b=2)
-# </editor-fold>
+    x = add(a=10, b=5)
+    y = sub(a=2, b=7)
+
+
 
 if __name__ == "__main__":
     main()
