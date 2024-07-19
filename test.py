@@ -11,46 +11,54 @@
 #     if value != 5:
 #         print(key)
 
-"""
-Use of *args and **kwargs
-"""
-
-
-def function1(name, *args):
-    age = args[0]
-    profession = args[1]
-    print(f"my name is {name} and my age is {age} . I work as a {profession}")
-
-
-def keyword(*args, **kwargs):
-    for i in args:
-        # print(i)
-        # for key, value in kwargs.items():
-        # print("".join(f"{key}: {value}"))
-        # print('\n')
-
-        print(", ".join(f"{key}: {value}" for key, value in i.items()))
-
-
-# Passing the arguments to function1 method
-
-# function1("prakash", 28, "software engineer!")
-
-
-# defining the list which takes as * args
-people = [{"name": "Alice", "age": 28}
-    , {"name": "Bob", "age": 34},
-          {"name": "Catherine", "age": 22},
-          {"name": "David", "age": 40},
-          {"name": "Eva", "age": 31},
-          {"name": "Frank", "age": 25},
-          {"name": "Grace", "age": 29},
-          {"name": "Henry", "age": 37},
-          {"name": "Isabella", "age": 19},
-          {"name": "Jack", "age": 45}]
-
-keyword(*people)
 
 import pandas as pd
 
 print(pd)
+
+#Use OF TRY EXCEPET ELSE AND FINALLY BLOCKS
+
+def divide_numbers(a, b):
+    try:
+        # Try to perform the division
+        result = a / b
+    except ZeroDivisionError:
+        # Handle the division by zero error
+        print("Error: Cannot divide by zero.")
+    except TypeError:
+        # Handle the error if a non-numeric type is provided
+        print("Error: Both arguments must be numbers.")
+    else:
+        # This block executes if no exceptions were raised
+        print(f"The result is {result}.")
+    finally:
+        # This block always executes, regardless of whether an exception was raised or not
+        print("Execution completed.", end='\n')
+
+# Example usage
+# divide_numbers(10, 2)  # Successful division
+# divide_numbers(10, 0)  # Division by zero
+# divide_numbers(10, 'a')  # Invalid type
+
+
+def gen(n):
+    for i in range(n):
+        yield i
+number  = gen(6)
+print(next(number))
+print(next(number))
+print(next(number))
+print(next(number))
+print(next(number))
+
+iter = iter("234")
+try:
+    print(next(iter))
+    print(next(iter))
+    print(next(iter))
+    print(next(iter))
+    print(next(iter))
+    print(next(iter))
+    print(next(iter))
+except:
+    pass
