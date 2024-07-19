@@ -6,4 +6,7 @@ print(sorted(models, key=lambda x: x['make']))
 
 
 lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print("even number of list: ", list(filter(lambda x: x%2  ==0, lst)))
+def is_even(n):
+ print("even number of list: ", list(filter(lambda x: x%2  ==0, lst)))
+
+# is_even(lst)
