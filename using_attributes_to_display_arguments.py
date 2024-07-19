@@ -9,4 +9,5 @@ lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 def is_even(n):
  print("even number of list: ", list(filter(lambda x: x%2  ==0, lst)))
 
-# is_even(lst)
+if __name__ == "__main__":
+ is_even(lst)
