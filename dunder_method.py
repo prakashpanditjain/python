@@ -1,6 +1,8 @@
+from is_even import is_even
 class employee():
     increment_value = 7 / 100
 
+    #Constructor
     def __init__(self, name, sname, salary):
         # self._id = uuid4
         self.name = name
@@ -30,6 +32,25 @@ class employee():
     def increment(cls, amount):
         cls.increment_value = amount
 
+    #Constructor
+    @classmethod
+    def from_str(cls, other_string):
+        fname, sname, salary = other_string.split(":")
+        return cls(fname, sname, salary)
+
+    @staticmethod
+    def iseven(number):
+        if int(number) % 2 == 0:
+            print(f"the number is {int(number)}")
+            return True
+        else:
+            print(f"the number is {int(number)}")
+            return False
+
+    @classmethod
+    def is_even(cls, salary_):
+        pass
+
 
 if __name__ == '__main__':
     # obj1 = fruit('prakash', 'pandit', 500000)
@@ -58,3 +79,14 @@ if __name__ == '__main__':
     # dunder method printing the first name if passed in the __str__ method
     rana = employee('VeerRanaRanveer', "chittore", 238942340)
     print(str(rana))
+
+    # calling from_str constructor and getting values for fname, sname and salary
+    tax_regime = employee.from_str("Rahul:shinde:100_001")
+    salary_ = tax_regime.salary
+
+    # creating list of salaries
+    list_ = list((int(salary_),rana.salary,prakash.salary,varun.salary))
+    print(list_)
+
+    # Passing the list in is_even function which has imported from using_attributes_to_display_arguments
+    even = is_even(list_)
