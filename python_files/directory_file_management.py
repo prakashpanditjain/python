@@ -21,3 +21,12 @@ if __name__ == '__main__':
     # get the execution path
     exec_path = os.get_exec_path()
     # print("\n".join(i for i in exec_path))
+
+
+    # create and delete a directory/file
+
+    # create directory
+    os.mkdir('testfile.txt')
+
+    # remove the above created directory
+    os.remove('testfile.txt')
