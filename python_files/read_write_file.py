@@ -19,7 +19,7 @@ def book_category(file_path: str, category, *args):
         app_category_name = list(
             book_category for book_category in category_list if str(category) in book_category.lower())
 
-    return (print(f"{category}_category_name = ",end=""), app_category_name, print(app_category_name))
+    return (print(f"{category}_category_name = ", end=""), app_category_name, print(app_category_name))
 
 
 def app_list(file_path: str, fun, *args):
@@ -41,12 +41,23 @@ def app_list(file_path: str, fun, *args):
     return app_list
 
 
-if __name__ == '__main__':
+def write_file(file_path: str, appname: str, *args):
+    with open(str(file_path), 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(appname)
+        writer.writerow(list_of_apps)
 
+
+if __name__ == '__main__':
     # Get the file path
     file_path = f"{os.getcwd()}/googleplaystore.csv"
 
+    wished_category = "book"
+
     # pass the varibles into function
-    list_of_apps = app_list(str(file_path), book_category(file_path, "art"))
+    list_of_apps = app_list(str(file_path), book_category(file_path, wished_category))
 
     print(list_of_apps)
+
+    output_write = write_file(f"{os.getcwd()}/{wished_category}_app_list.csv",
+                              book_category(file_path, wished_category))
