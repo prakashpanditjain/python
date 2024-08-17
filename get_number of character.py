@@ -27,5 +27,5 @@ def get_character_count(char_):
     print("\n".join(f"{k}:{v}" for k, v in dic.items()))
 
 
-if __name__ == '__main__':.
+if __name__ == '__main__':
     get_character_count('aldsbvusghrub')
