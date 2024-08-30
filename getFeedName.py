@@ -5,7 +5,12 @@ from urllib.parse import urlparse
 
 from dotenv import load_dotenv
 
-def extract_feed_name(url: object) -> object:
+def extract_feed_name(url: str) -> str:
+    """
+
+    :type url: object
+    :return: This functions return feed name
+    """
     parsed_url: ParseResult | ParseResultBytes = urlparse(url)
     return parsed_url.netloc.replace("www.", "")
 
@@ -13,5 +18,5 @@ def extract_feed_name(url: object) -> object:
 if __name__ == '__main__':
     load_dotenv()
     url: str | None = os.getenv('harry_url')
-    feedname: str = extract_feed_name(url)
-    print(feedname)
+    feed_name: str = extract_feed_name(url)
+    print(feed_name)
