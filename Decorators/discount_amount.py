@@ -10,7 +10,7 @@
 #
 # 	1.	Create a base decorator apply_discount that:
 # 	•	Takes the user type and the total bill amount as input.
-# 	•	Applies different discount rules based on the user type.
+# 	•	Applies different discount rules based on the usertype.
 # 	2.	Apply specific discounts to the following user types:
 # 	•	New users: Get a 5% discount on the total amount.
 # 	•	Loyal users: Get a 10% discount on the total amount.
