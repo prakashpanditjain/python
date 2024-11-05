@@ -12,6 +12,11 @@ Solution with a Generator
 
 Using a generator allows you to read and process the file one line at a time, making it memory-efficient.
 """
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def find_variable_in_file(file_path, variable):
@@ -21,9 +26,8 @@ def find_variable_in_file(file_path, variable):
                 yield line
 
 
-file_path = "file_path"
-variable = "     ing      "
+file_path = os.getenv("file_path")
+variable = os.getenv("variable")
 
-# find_variable_in_file(file_path, variable)
 for xcom in find_variable_in_file(file_path, variable):
     print(xcom)
