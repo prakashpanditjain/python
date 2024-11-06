@@ -35,12 +35,23 @@ def validate_args(fun):
 
         """To make more generic we are optimizing above wrapper function"""
         annotation = fun.__annotations__
+
+        """
+        annotation give you a key value pair of variable/ return key/ any key with data type as value in dictionary 
+        form
+        """
+        # print("this is annotation of function",annotation)
         # print(annotation)
         args_names = fun.__code__.co_varnames[:len(args)]
+        """
+        fun.__code__ attribute gives you  compiled function bytecode, variable names, constants, and other attributes 
+        """
+        # print("this is args names taken from fun.__code__.co_varnames", args_names)
         for arg, arg_name in zip(args, args_names):
             # print(arg, arg_name)
             expected_type = annotation.get(arg_name, None)
-            print("expected_type",expected_type, isinstance(arg, expected_type))
+            print("expected_type", expected_type, isinstance(arg, expected_type))
+            # isinstance is used to verify if the object is instance of the class
             if expected_type and not isinstance(arg, expected_type):
                 print(f"argument '{arg_name}' is expected to be {expected_type} but got {type(arg)} ")
 
@@ -82,7 +93,7 @@ def retry_on_failure(retries=4, delay=1, backoff=3):
     return decorator
 
 
-@retry_on_failure(4,1,3)
+@retry_on_failure(4, 1, 3)
 @validate_args
 def fetch_product_info(product_id: int):
     print(f"Fetching information for product: {product_id}")
