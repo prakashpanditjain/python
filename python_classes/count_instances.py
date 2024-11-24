@@ -4,6 +4,7 @@ class instancetracker():
     def __init__(self):
         instancetracker.instance_count += 1
 
+    @classmethod
     def count_instance(cls):
         # get the count of instance created
         return cls.instance_count
@@ -18,5 +19,4 @@ obj3  = instancetracker()
 obj3  = instancetracker()
 
 
-countofinstance = instancetracker.instance_count
-print(countofinstance)
+print("count of instances created",instancetracker.count_instance())
