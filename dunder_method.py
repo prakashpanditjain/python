@@ -1,92 +1,46 @@
-from is_even import is_even
-class employee():
-    increment_value = 7 / 100
+class MobilePhone():
+    def __init__(self, model, type, sim) -> None:
+        self.model = model
+        self.type = type
+        self.sim = sim
+        self.switched_on: bool = False
 
-    #Constructor
-    def __init__(self, name, sname, salary):
-        # self._id = uuid4
-        self.name = name
-        self.sname = sname
-        self.salary = salary
 
-    def main(self):
-        print(self.name, self.sname, "has salary", self.salary)
+    def switch_on(self) -> None:
+        if self.switched_on:
+            print(f"Mobile : {self.model} is already switched on")
+
+        else:
+            self.switched_on = True
+            print(f'{self.model} Mobile has now switched on')
+
+    def switch_off(self) -> None:
+        if self.switched_on:
+            self.switched_on = False
+            print(f"{self.model} has now switched off")
+        else:
+            print(f"{self.model} is already switched off")
+
+    def run_application(self, app_name) -> None:
+        if self.switched_on:
+            print(f"{app_name} application is running")
+        else:
+            print(f"A mystical force whispers: 'switch on your mobile phone' ")
 
     def __str__(self):
-        return self.name
+        return f"you have a {self.model} Mobile which is {self.type} and has {self.sim} SIM"
 
-    def same(self):
-        return self.sname
+    def __add__(self, other):
+        return f'{self.model} and {other.model}'
 
-    def __int__(self):
-        return self.salary
-
-    def increase(self):
-
-        if self.increment_value < 1:
-            self.salary = int(self.salary * self.increment_value) + self.salary
-        else:
-            self.salary = int(self.salary * self.increment_value)
-
-    @classmethod
-    def increment(cls, amount):
-        cls.increment_value = amount
-
-    #Constructor
-    @classmethod
-    def from_str(cls, other_string):
-        fname, sname, salary = other_string.split(":")
-        return cls(fname, sname, salary)
-
-    @staticmethod
-    def iseven(number):
-        if int(number) % 2 == 0:
-            print(f"the number is {int(number)}")
-            return True
-        else:
-            print(f"the number is {int(number)}")
-            return False
-
-    @classmethod
-    def is_even(cls, salary_):
-        pass
+    def __mul__(self, other):
+        return f"{self.sim} * {other.sim}"
 
 
-if __name__ == '__main__':
-    # obj1 = fruit('prakash', 'pandit', 500000)
-    # obj1.main()
-    # print(obj1)
-    # print(int(obj1))
+samsung: MobilePhone = MobilePhone("Samsung", "smartPhone", "Dual")
+Nokia: MobilePhone = MobilePhone("Nokia", "keypad", "Single")
 
-    # Object creation of two employees
-    prakash = employee('praksh', 'pandit', 200_000)
-    varun = employee('varun', 'samsung', 500_000)
+print(samsung + Nokia)
+print(samsung * Nokia)
+print(samsung)
 
-    """ check salary of prakash increment the increment_value by 3 
-    from giving the variable from outside of the class
-    though we have defined the variable inside tha class"""
-
-    print(prakash.salary)
-    # (prakash.increase())
-    employee.increment(3)
-
-    # increase the salary by passing it into increase method
-    prakash.increase()
-
-    #check the salary after increment
-    print(prakash.salary)
-
-    # dunder method printing the first name if passed in the __str__ method
-    rana = employee('VeerRanaRanveer', "chittore", 238942340)
-    print(str(rana))
-
-    # calling from_str constructor and getting values for fname, sname and salary
-    tax_regime = employee.from_str("Rahul:shinde:100_001")
-    salary_ = tax_regime.salary
-
-    # creating list of salaries
-    list_ = list((int(salary_),rana.salary,prakash.salary,varun.salary))
-    print(list_)
-
-    # Passing the list in is_even function which has imported from using_attributes_to_display_arguments
-    even = is_even(list_)
