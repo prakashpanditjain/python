@@ -53,7 +53,6 @@ def loyal_user_purchase(total_amount):
 def VIP_user_purchase(total_amount):
     return total_amount
 
-
 if __name__ == '__main__':
     object = new_user_purchase(100)
     print(f"New user needs to pay {object}")
