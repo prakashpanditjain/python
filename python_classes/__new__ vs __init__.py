@@ -20,6 +20,7 @@ class Connection:  # Define a class named `Connection`.
             # The constructor is called every time the class is instantiated.
             print("Connected to the internet!")
             self._initialized = True
+
 if __name__ == '__main__':
 
     # Create the first instance of the `Connection` class.
