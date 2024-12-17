@@ -20,17 +20,19 @@ class Connection:  # Define a class named `Connection`.
             # The constructor is called every time the class is instantiated.
             print("Connected to the internet!")
             self._initialized = True
-# Create the first instance of the `Connection` class.
-conn1 = Connection()
-# Output:
-# "Connected to super class instance"
-# "Connected to the internet!"
+if __name__ == '__main__':
 
-# Attempt to create another instance of the `Connection` class.
-conn2 = Connection()
-# Output:
-# "There's already a Connection has been established"
-# "Connected to the internet!"
+    # Create the first instance of the `Connection` class.
+    conn1 = Connection()
+    # Output:
+    # "Connected to super class instance"
+    # "Connected to the internet!"
 
-# Compare the two instances to confirm if they are the same.
-print(conn2 == conn1)  # Output: True
+    # Attempt to create another instance of the `Connection` class.
+    conn2 = Connection()
+    # Output:
+    # "There's already a Connection has been established"
+    # "Connected to the internet!"
+
+    # Compare the two instances to confirm if they are the same.
+    print(conn2 == conn1)  # Output: True
