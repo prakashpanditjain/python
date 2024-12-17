@@ -31,9 +31,9 @@ jobs:
       - name: Get changed Python files
         id: changed_files
         run: |
-          # Get list of modified or added Python files
+          # Fetch the list of modified or added Python files and quote them
           git fetch origin ${{ github.event.before }} --depth=1
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} HEAD -- '*.py')
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} HEAD -- '*.py' | sed 's/.*/"&"/')
           echo "Changed files: $CHANGED_FILES"
           echo "files=$CHANGED_FILES" >> $GITHUB_ENV
 
