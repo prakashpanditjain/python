@@ -19,12 +19,14 @@
 # 	•	new_user_purchase(total): Represents a purchase by a new user.
 # 	•	loyal_user_purchase(total): Represents a purchase by a loyal user.
 # 	•	vip_user_purchase(total): Represents a purchase by a VIP user.
-# 	4.	Each function should take in the total bill amount, and the decorator should apply the correct discount and
+# 	4.	Each function should take in the total bill amount, and the decorator
+#   	should apply the correct discount and
 # 	print the final amount after discount.
 #
 # Task:
 #
-# 	•	Use the apply_discount decorator to dynamically apply the appropriate discount based on the user type when
+# 	•	Use the apply_discount decorator to dynamically apply the appropriate
+#   	discount based on the user type when
 # 	they make a purchase.
 #
 # Expected Output:
