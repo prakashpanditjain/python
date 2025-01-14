@@ -10,14 +10,14 @@ tim.color("red")
 
 # Draw a square (incorrect implementation; doesn't create a square)
 for i in range(4):
-    tim.speed("fast")
+    tim.speed("fastest")
     tim.forward(100)
     tim.right(45)
     tim.circle(30)
     tim.right(45)
 
 # Infinite loop to draw circles with alternating colors and directions
-while True:
+while tim.setheading(359):
     tim.speed("fastest")
     tim.circle(120, 90)  # Draw 1/4th of a circle
     tim.left(90)
@@ -43,17 +43,17 @@ while True:
             tim.forward(100)  # Move forward
             tim.right(360 / i)  # Turn to form a polygon
             tim.color(colors[i - 4])  # Change color
-    if abs(tim.pos()):  # This condition doesn't effectively break the loop
+    if abs(tim.pos()) < 1:
         break
 
 # Infinite loop for spiral pattern
-while True:
-    tim.forward(200)  # Move forward
-    tim.left(170)  # Turn left to form a spiral
-
-    # Break condition (not effective as written)
-    if abs(tim.pos()) < 1:
-        break
+# while True:
+#     tim.forward(200)  # Move forward
+#     tim.left(170)  # Turn left to form a spiral
+#
+#     # Break condition (not effective as written)
+#     if abs(tim.pos()) < 1:
+#         break
 
 # Random walk with colored paths
 tim.speed("fastest")
