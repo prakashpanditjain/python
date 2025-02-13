@@ -16,10 +16,11 @@ def press_button():
     # pass_gen_button.config(relief='sunken')
     # window.after(200,lambda: pass_gen_button.config(relief="raised"))
 
-    pass_gen_button.config(state='active')
-    window.after(200,lambda: pass_gen_button.config(state='normal'))
-
-
+    # pass_gen_button.config(state='active',relief='sunken')
+    # window.after(200,lambda: pass_gen_button.config(relief='raised',state='normal'))
+    window.after(100, lambda: pass_gen_button.config(relief="raised",state='normal'))
+    window.after(200, lambda: pass_gen_button.config(relief="sunken",state='active'))
+    window.after(300, lambda: pass_gen_button.config(relief="raised",state='normal'))
 
 
 window = Tk()
@@ -50,7 +51,7 @@ pass_label.grid(column=0,row=3)
 password_input = Entry(width=21,bg='white')
 password_input.grid(column=1,row=3)
 
-pass_gen_button = Button(window, text='Generate Password',fg='green',command=press_button)
+pass_gen_button = Button(window, text='Generate Password',fg='green',command=press_button, relief='raised')
 pass_gen_button.grid(column=2,row=3)
 
 
