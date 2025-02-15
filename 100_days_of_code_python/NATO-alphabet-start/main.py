@@ -28,7 +28,14 @@ alpha_dict = {row.letter:row.code for index,row in df.iterrows()}
 print(alpha_dict)
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-user_input = input("what is your word?\n").upper()
+def generate_phonetic():
+    user_input = input("what is your word?\n").upper()
+    try:
+        phonetic_word_list = [alpha_dict[letter] for letter in user_input]
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        generate_phonetic()
+    else:
+        print(phonetic_word_list)
 
-phonetic_word_list = [alpha_dict[letter] for letter in user_input]
-print(phonetic_word_list)
+generate_phonetic()
