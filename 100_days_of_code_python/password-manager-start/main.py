@@ -1,3 +1,4 @@
+import json
 import os
 import random
 import string
@@ -34,20 +35,11 @@ def save():
     website = web_input.get()
     password = password_input.get()
     email = username_input.get()
-
-    def delete_entries():
-        """
-        :return: deletes the entries from Entry box of website and password
-        """
-        web_input.delete(0, END)
-        password_input.delete(0, END)
-
-    def write_content():
-        """
-        :return: website , username and password
-        """
-        content = (f'{website} \t|\t {email} \t|\t {password}\n')
-        return content
+    new_data = {website:{
+        'email': email,
+        'password': password
+        }
+    }
 
     # check if user has given some input
     if len(website) == 0 or len(password) == 0:
@@ -58,23 +50,20 @@ def save():
             password_input.focus()
 
     else:
-        is_ok = messagebox.askokcancel(title=website,
-                                       message=f"Website: {website}\n Password: {password}\n Are your entries are "
-                                               f"confirm to add")
-        # check if file path do exists
-        file_path = os.path.exists('data.txt')
-        if is_ok:
-            if file_path is False:
-                with open('../password-manager-start/data.txt', 'w') as file:
-                    # write the header in the file for first time
-                    file.write("website \t|\t Username\t|\t Password\n")
-
-            with open('../password-manager-start/data.txt', 'a') as file:
-                    file.write(write_content())
-                    delete_entries()
+        try:
+            with open('data.json',"r") as file:
+                data = json.load(file)
+        except:
+            with open('data.json','w') as  file:
+                json.dump(new_data, file, indent=4)
         else:
-            web_input.focus()
+            data.update(new_data)
 
+            with open('data.json', 'w') as file:
+                json.dump(data, file, indent=4)
+
+            web_input.delete(0, END)
+            password_input.delete(0, END)
 
 # ---------------------------- Button appear as pressed ------------------------------- #
 def press_button():
@@ -90,7 +79,24 @@ def press_button():
     window.after(200, lambda: pass_gen_button.config(relief="sunken", state='active'))
     window.after(300, lambda: pass_gen_button.config(relief="raised", state='normal'))
 
+# ---------------------------- Find Password ------------------------------- #
+def find_password():
+    user_entry = web_input.get()
 
+    try:
+        with open('data.json', 'r') as file:
+            data = json.load(file)
+
+    except Exception as e:
+        messagebox.showinfo(title='File No Found',message='ERROR: FILE NOT FOUND')
+    else:
+        if user_entry in data:
+            email = data[user_entry]['email']
+            password = data[user_entry]['password']
+            messagebox.showinfo(title="Website data",
+                                message=f'website:  {user_entry}\n password: {password}')
+        else:
+            messagebox.showinfo(title='Error',message=f"No details found for {user_entry}")
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
@@ -106,8 +112,8 @@ website_label = Label(text='Website', font=('Courier'))
 website_label.grid(column=0, row=1)
 website_label.config()
 
-web_input = Entry(width=38, )
-web_input.grid(column=1, row=1, columnspan=2)
+web_input = Entry(width=21)
+web_input.grid(column=1, row=1)
 web_input.focus()
 
 username_label = Label(text='Email/Username', font=('Courier'))
@@ -128,5 +134,8 @@ pass_gen_button.grid(column=2, row=3)
 
 add_button = Button(text='Add', width=36, command=save)
 add_button.grid(row=4, column=1, columnspan=2)
+
+search_button = Button(text='Search',font=('Courier',15),width=13,command=find_password)
+search_button.grid(row=1, column=2)
 
 window.mainloop()
