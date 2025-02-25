@@ -23,8 +23,8 @@ DAY = today.day
 MONTH = today.month
 
 ############################ SMTP credentials ############################
-my_email = "python60daysofcode@gmail.com"
-password = "oplvlvifuagvukjp"
+my_email = "myemail@gmail.com"
+password = "1234asbclkjhiuf"
 
 
 ############# DATAFRAME #############
