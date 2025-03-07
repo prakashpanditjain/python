@@ -19,7 +19,7 @@ response = requests.get(url=url, params=parameters)
 json = response.json()
 
 today = datetime.today().date()
-closing_price = [279.94, 272.35]
+closing_price = [279.94, 272.35] #just for ref , in case your api dont work :)
 for i in range(1, 3):
     dateprice = today - timedelta(days=i)
     # closing_price.append(json['Time Series (Daily)'][str(dateprice)]['4. close'])
