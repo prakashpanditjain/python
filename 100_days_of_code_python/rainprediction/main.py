@@ -1,4 +1,6 @@
-api_key = 'a9fa32076c9a57af43a07fad740b52f0'
+import os
+
+api_key = os.environ.get('WAK')
 end_point = "http://api.openweathermap.org/data/2.5/forecast"
 
 parameter = {
