@@ -1,0 +1,22 @@
+/* CSS for the motivational website project */
+body {
+  background-color: gray;
+}
+
+.motivation-img {
+    width: 80%;
+    border: 5px solid white;
+  }
+
+  .poster {
+    margin-top: 100px;
+    color: white;
+    font-family: "Libre Baskerville", serif;
+    text-align: center;
+  }
+
+h1 {
+  color:white;  
+  text-transform: uppercase;
+  margin-top: 50px;
+}
