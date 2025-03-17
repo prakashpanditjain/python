@@ -1,0 +1,22 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# IDE settings
+.idea/
+.vscode/
+
+# Environment variables
+.env
+
+./100_days_of_code_python/day_46_spotifyplaylist/token.txt
