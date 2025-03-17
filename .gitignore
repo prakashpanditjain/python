@@ -6,6 +6,7 @@ __pycache__/
 
 # Virtual environment
 venv/
+.venv/
 .env/
 
 # Logs and temporary files
@@ -19,4 +20,5 @@ venv/
 # Environment variables
 .env
 
-./100_days_of_code_python/day_46_spotifyplaylist/token.txt
+100_days_of_code_python/day_46_spotifyplaylist/token.txt
+.gitignore
