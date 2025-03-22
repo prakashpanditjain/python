@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prakash's Website</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+<footer>
+    <p>
+        Copyright {{ year }}
+    </p>
+    <p>
+        {{ json_text }}
+        <a href="{{ url_for('get_blog', num=3) }}">Go to Blog</a>
+    </p>
+</footer>
+</html>
