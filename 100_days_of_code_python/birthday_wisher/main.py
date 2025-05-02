@@ -41,7 +41,6 @@ for n in range(len(names)):
         start_letter = file.read()
         start_letter = start_letter.replace('[NAME]',names[n])
 
-
     ################send email##########################
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
