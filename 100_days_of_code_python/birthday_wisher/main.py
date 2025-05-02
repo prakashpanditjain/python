@@ -12,6 +12,7 @@ import smtplib
 
 import pandas
 ################# read birthdays.csv
+
 df = pandas.read_csv('birthdays.csv')
 print(df)
 
