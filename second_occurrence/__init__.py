@@ -1,0 +1,2 @@
+from .string_util import second_occurrence_efficient
+from .string_util import second_occurrence
