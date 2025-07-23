@@ -44,3 +44,27 @@ for group in df['Group'].unique()[:-1]:
 #print columns
 print(df.columns.tolist())
 
+from spark.sql import SparkSession
+spark = SparkSession.builder \
+    .appName("SalariesByCollegeMajor") \
+
+
+#create struct schema for the dataframe for column date, tag and posts
+from pyspark.sql.types import StructType, StructField, StringType, FloatType
+columns = StructType([
+    StructField("Undergraduate Major", StringType(), True),
+    StructField("Group", StringType(), True),
+    StructField("Starting Median Salary", FloatType(), True),
+    StructField("Mid-Career Median Salary", FloatType(), True),
+    StructField("Mid-Career 90th Percentile Salary", FloatType(), True),
+    StructField("Early Career 10th Percentile Salary", FloatType(), True),
+    StructField("Early Career 25th Percentile Salary", FloatType(), True),
+    StructField("Early Career 50th Percentile Salary", FloatType(), True),
+    StructField("Early Career 75th Percentile Salary", FloatType(), True),
+    StructField("Early Career 90th Percentile Salary", FloatType(), True)
+])
+
+df = spark.read.format()
+
+#create the schema
+df = spark.read.format('csv').schema(columns).load('/FileStore/QueryResults.csv')
