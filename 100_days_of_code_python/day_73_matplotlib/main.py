@@ -6,16 +6,23 @@ file_path = './QueryResults.csv'
 df = pd.read_csv(file_path)
 
 # Basic data exploration
-print("Dataset Shape:", df.shape)
-print("\nColumns:", df.columns.tolist())
-print("\nFirst 5 rows:")
-print(df.head())
+print("Dataset Shape:", df.shape) # (rows, columns)
+print("\nData Types:\n", df.dtypes)
+# print("\nColumns:", df.columns.tolist())
+# print("\nFirst 5 rows:")
+# print(df.head())
+#
+# # Check for missing values
+# print("\nMissing values:")
+# print(df.isnull().sum())
+#
+# print("\nLast five rows", df.tail())
 
-# Check for missing values
-print("\nMissing values:")
-print(df.isnull().sum())
+print("\n Distinct m values", df['m'].unique())
 
-# Basic statistics
-print("\nBasic statistics:")
-print(df.describe())(df["m"])
+print("\n Months count for each programmming language:",
+df['TagName'].unique())
+
+print(df.groupby('TagName').sum())
+
 
