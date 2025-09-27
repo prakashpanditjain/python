@@ -28,3 +28,12 @@ jobs:
       - name: Run PySpark tests
         run: |
           pytest workflow_tests/ --maxfail=1 --disable-warnings -q
+
+      - name: run bash command
+        run: |
+          echo "Hello, World!"
+          ls -la
+          pwd
+          echo "This is a sample bash command step in GitHub Actions."
+          echo "date and time:"
+          date
