@@ -16,9 +16,7 @@ def count_zero_sum_subarrays(nums: list[int]) -> int:
     sum_frequency = {0: 1}
 
     for num in nums:
-        current_sum += num  #1
-        # if current_sum == 0:
-        #     count += sum_frequency[0]
+        current_sum += num
         if current_sum in sum_frequency:
             count += sum_frequency[current_sum]
         sum_frequency[current_sum] = sum_frequency.get(current_sum, 0) + 1
