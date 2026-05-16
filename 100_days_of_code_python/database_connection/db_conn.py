@@ -27,3 +27,13 @@ print(execute_sql(db_conn, insert_query))
 # select data from table
 select_query = "select * from users"
 print(execute_sql(db_conn, select_query))
+
+# read data from csv file
+csv_file_path = 'youtube-top-100-songs-2025.csv'
+data = read_csv(csv_file_path)
+
+# create pandas dataframe
+columns = ['title', 'fulltitle', 'description', 'view_count', 'categories', 'tags', 'duration', 'duration_string', 'live_status', 'thumbnail', 'channel', 'channel_url', 'channel_follower_count']
+df = create_pandas_df(read_csv(csv_file_path), columns, header=True)
+
+

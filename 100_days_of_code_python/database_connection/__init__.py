@@ -22,3 +22,24 @@ def execute_sql(conn, query):
     """
     result = conn.execute(query)
     return result.fetchall()
+
+def read_csv(file_path):
+    """
+    Read a CSV file and return its content as a list of tuples
+    """
+    import csv
+    with open(file_path, mode='r') as file:
+        csv_reader = csv.reader(file)
+        data = [tuple(row) for row in csv_reader]
+    return data
+
+def create_pandas_df(data, columns, header=True):
+    """
+    Create a pandas DataFrame from data and column names
+    """
+    import pandas as pd
+    # give give header as true if the first row is header
+    if header:
+        data = data[1:]  # Skip the first row if it's a header
+    df = pd.DataFrame(data, columns=columns)
+    return df
